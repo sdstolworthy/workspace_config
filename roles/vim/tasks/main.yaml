@@ -1,0 +1,16 @@
+- name: install vim
+  ansible.builtin.package:
+    name: vim
+    state: present
+  become: true
+- name: install vimconfig
+  ansible.builtin.git:
+    clone: true
+    repo: https://github.com/sdstolworthy/vimconfig.git
+    dest: $HOME/vimconfig
+- name: link .vimrc
+  ansible.builtin.file:
+    path: $HOME/.vimrc
+    src: $HOME/vimconfig/.vimrc
+    state: link
+

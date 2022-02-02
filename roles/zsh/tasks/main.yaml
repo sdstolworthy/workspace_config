@@ -1,5 +1,9 @@
-- name: nvm
+- name: install zsh
+  become: true
+  ansible.builtin.package:
+    name: zsh
+    state: present
+- name: oh-my-zsh
   shell: >
     ZSH=~/.oh-my-zsh sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  args:
-    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+  ignore_errors: true

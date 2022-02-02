@@ -2,5 +2,7 @@
 - hosts: localhost
   connection: local
   roles:
-    - nvm
     - zsh
+    - vim
+    - role: nvm
+      nvm_profile: /home/spencer/.zshrc
