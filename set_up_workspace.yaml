@@ -4,5 +4,6 @@
   roles:
     - zsh
     - vim
+    - directories
     - role: nvm
       nvm_profile: /home/spencer/.zshrc
