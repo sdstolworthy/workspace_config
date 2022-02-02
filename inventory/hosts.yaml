@@ -1,0 +1,5 @@
+all:
+  hosts:
+    localhost:
+      ansible_ip: 127.0.0.1
+      connection: local
