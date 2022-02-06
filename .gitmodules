@@ -1,3 +1,6 @@
 [submodule "roles/nvm"]
 	path = roles/nvm
 	url = git@github.com:morgangraphics/ansible-role-nvm.git
+[submodule "roles/install_go"]
+	path = roles/install_go
+	url = git@github.com:fubarhouse/ansible-role-golang.git

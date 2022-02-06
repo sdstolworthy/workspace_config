@@ -1,0 +1,4 @@
+- name: update environment variable for go
+  shell: |
+    echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.zshrc
+

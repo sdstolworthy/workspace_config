@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+  vars:
+    GO111MODULE: "on"
+    go_version: go1.17.6
+  roles:
+    - install_go
+    - environment_variables
