@@ -1,2 +1,4 @@
+## Clone the repository
+`git clone --recurse-submodules git@github.com:sdstolworthy/workspace_config.git`
 # Run the ansible playbook
-`ansible-playbook set_up_workspace.yaml -i inventory/hosts.yaml`
+`ansible-playbook playbook.yaml -i inventory/hosts.yaml`
