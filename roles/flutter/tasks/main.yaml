@@ -1,0 +1,21 @@
+- name: create development directory
+  ansible.builtin.file:
+    state: directory
+    path: "{{ ansible_env.HOME }}/development"
+- name: clone flutter repo
+  ansible.builtin.git:
+    depth: 1
+    dest: "{{ ansible_env.HOME }}/development/flutter"
+    repo: https://github.com/flutter/flutter.git
+    version: stable
+    single_branch: yes
+- name: create profile file
+  ansible.builtin.file:
+    state: touch
+    path: "{{ ansible_env.HOME }}/.profile"
+- name: set environment variables
+  ansible.builtin.lineinfile:
+    dest: ~/.profile
+    state: present
+    line: "export PATH=$PATH:{{ ansible_env.HOME }}/development/flutter/bin"
+
