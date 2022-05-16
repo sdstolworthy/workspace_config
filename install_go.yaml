@@ -4,7 +4,7 @@
   become: true
   vars:
     GO111MODULE: "on"
-    go_version: go1.17.6
+    go_version: 1.18.2
   roles:
     - install_go
     - environment_variables
