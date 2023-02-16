@@ -1,7 +1,9 @@
+
 - name: install zsh
   ansible.builtin.package:
     name: zsh
     state: present
+  become:  "{{ ansible_distribution != 'MacOSX' }}"
 - name: oh-my-zsh
   shell: >
     ZSH=~/.oh-my-zsh sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
