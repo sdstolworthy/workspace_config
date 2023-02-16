@@ -11,7 +11,7 @@
 - name: link .vimrc for nvim
   ansible.builtin.file:
     path: $HOME/.config/nvim/init.vim
-    src: $HOME/.vimconfig/.vimrc
+    src: $HOME/.vimconfig/vimrc
     state: link
 - name: link nvim lua folder 
   ansible.builtin.file:
@@ -21,7 +21,7 @@
 - name: link .vimrc for vim
   ansible.builtin.file:
     path: $HOME/.vimrc
-    src: $HOME/.vimconfig/.vimrc
+    src: $HOME/.vimconfig/vimrc
     state: link
 - name: install vim plug
   ansible.builtin.shell: |
