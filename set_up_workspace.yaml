@@ -2,6 +2,8 @@
 - hosts: localhost
   connection: local
   ignore_errors: true
+  vars:
+    become_for_package: "{{ ansible_distribution != 'MacOSX' }}"
   roles:
     - zsh
     - vim

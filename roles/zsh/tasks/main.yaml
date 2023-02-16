@@ -1,9 +1,8 @@
-
 - name: install zsh
   ansible.builtin.package:
     name: zsh
     state: present
-  become:  "{{ ansible_distribution != 'MacOSX' }}"
+  become: "{{ become_for_package }}"
 - name: oh-my-zsh
   shell: >
     ZSH=~/.oh-my-zsh sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -12,10 +11,10 @@
   ansible.builtin.git:
     clone: true
     repo: https://github.com/sdstolworthy/dotfiles.git
-    dest: $HOME/.vimconfig
+    dest: $HOME/.dotfiles
 - name: link .zshrc
   ansible.builtin.file:
     path: $HOME/.zshrc
-    src: $HOME/.vimconfig/zshrc
+    src: $HOME/.dotfiles/zshrc
     state: link
 

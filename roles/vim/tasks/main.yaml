@@ -1,27 +1,32 @@
+- name: install nvim
+  ansible.builtin.package:
+    name: nvim
+    state: present
+  become: "{{ become_for_package }}"
 - name: install vim
   ansible.builtin.package:
     name: vim
     state: present
-  become: true
-- name: install vimconfig
+  become: "{{ become_for_package }}"
+- name: clone dotfiles
   ansible.builtin.git:
     clone: true
     repo: https://github.com/sdstolworthy/dotfiles.git
-    dest: $HOME/.vimconfig
+    dest: $HOME/.dotfiles
 - name: link .vimrc for nvim
   ansible.builtin.file:
     path: $HOME/.config/nvim/init.vim
-    src: $HOME/.vimconfig/vimrc
+    src: $HOME/.dotfiles/vimrc
     state: link
 - name: link nvim lua folder 
   ansible.builtin.file:
     path: $HOME/.config/nvim/lua
-    src: $HOME/.vimconfig/lua
+    src: $HOME/.dotfiles/lua
     state: link
 - name: link .vimrc for vim
   ansible.builtin.file:
     path: $HOME/.vimrc
-    src: $HOME/.vimconfig/vimrc
+    src: $HOME/.dotfiles/vimrc
     state: link
 - name: install vim plug
   ansible.builtin.shell: |
