@@ -12,9 +12,14 @@
     clone: true
     repo: https://github.com/sdstolworthy/dotfiles.git
     dest: $HOME/.dotfiles
-- name: link .zshrc
+- name: link .my_profile
   ansible.builtin.file:
-    path: $HOME/.zshrc
-    src: $HOME/.dotfiles/zshrc
+    path: $HOME/.my_profile
+    src: $HOME/.dotfiles/profile
     state: link
+- name: add profile source to zshrc
+  ansible.builtin.lineinfile:
+    path: $HOME/.zshrc
+    line: source $HOME/.my_profile
+    create: yes
 
