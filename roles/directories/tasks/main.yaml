@@ -1,3 +1,7 @@
+- name: Create dev directory
+  ansible.builtin.file:
+    path: $HOME/dev
+    state: directory
 - name: Create projects directory
   ansible.builtin.file:
     path: $HOME/Projects

@@ -6,7 +6,7 @@
 - name: install vimconfig
   ansible.builtin.git:
     clone: true
-    repo: https://github.com/sdstolworthy/vimconfig.git
+    repo: https://github.com/sdstolworthy/dotfiles.git
     dest: $HOME/.vimconfig
 - name: link .vimrc for nvim
   ansible.builtin.file:

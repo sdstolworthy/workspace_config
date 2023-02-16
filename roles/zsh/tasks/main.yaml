@@ -8,3 +8,14 @@
   shell: >
     ZSH=~/.oh-my-zsh sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   ignore_errors: true
+- name: clone dotfiles
+  ansible.builtin.git:
+    clone: true
+    repo: https://github.com/sdstolworthy/dotfiles.git
+    dest: $HOME/.vimconfig
+- name: link .zshrc
+  ansible.builtin.file:
+    path: $HOME/.zshrc
+    src: $HOME/.vimconfig/zshrc
+    state: link
+
