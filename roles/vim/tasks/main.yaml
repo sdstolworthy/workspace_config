@@ -7,11 +7,21 @@
   ansible.builtin.git:
     clone: true
     repo: https://github.com/sdstolworthy/vimconfig.git
-    dest: $HOME/vimconfig
-- name: link .vimrc
+    dest: $HOME/.vimconfig
+- name: link .vimrc for nvim
+  ansible.builtin.file:
+    path: $HOME/.config/nvim/init.vim
+    src: $HOME/.vimconfig/.vimrc
+    state: link
+- name: link nvim lua folder 
+  ansible.builtin.file:
+    path: $HOME/.config/nvim/lua
+    src: $HOME/.vimconfig/lua
+    state: link
+- name: link .vimrc for vim
   ansible.builtin.file:
     path: $HOME/.vimrc
-    src: $HOME/vimconfig/.vimrc
+    src: $HOME/.vimconfig/.vimrc
     state: link
 - name: install vim plug
   ansible.builtin.shell: |
